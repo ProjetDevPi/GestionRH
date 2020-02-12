@@ -1,0 +1,16 @@
+rh_homepage:
+    path:     /
+    defaults: { _controller: RHBundle:Default:index }
+
+delete:
+    path:     /delete{id}
+    defaults: { _controller: RHBundle:conge:delete }
+
+delete1:
+    path:     /delete1/{id}
+    defaults: { _controller: RHBundle:Matiere:delete2 }
+
+show2:
+    path:     /show2
+    defaults: { _controller: RHBundle:Seance:show2 }
+

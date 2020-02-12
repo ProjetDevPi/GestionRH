@@ -1,0 +1,29 @@
+rh_seance:
+    resource: "@RHBundle/Controller/SeanceController.php"
+    type:     annotation
+
+rh_matiere:
+    resource: "@RHBundle/Controller/MatiereController.php"
+    type:     annotation
+
+rh_conge:
+    resource: "@RHBundle/Controller/congeController.php"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+rh:
+    resource: "@RHBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

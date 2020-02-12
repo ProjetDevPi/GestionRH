@@ -1,0 +1,98 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block container %}
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+        <div class="main-body">
+            <div class="page-wrapper">
+
+                <div class="page-header">
+                    <div class="row align-items-end">
+                        <div class="col-lg-8">
+                            <div class="page-header-title">
+                                <div class="d-inline">
+                                    <h4>La liste Des Matiéres</h4>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="page-header-breadcrumb">
+                                <ul class="breadcrumb-title">
+                                    <li class="breadcrumb-item">
+                                        <a href="index.html"> <i class="feather icon-home"></i> </a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#!">Basic Table</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="page-body">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5> Matiéres</h5>
+
+                        </div>
+                        <div class="card-block table-border-style">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Identifiant</th>
+                                        <th>Nom Matiere</th>
+                                        <th>Coefficient</th>
+                                        <th>Editer</th>
+                                        <th>Supprimer</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+
+
+                                    <tr>
+                                        {% for matiere in matieres %}
+                                        <td   class="table-info"  ><a href="{{ path('matiere_show', { 'id': matiere.id }) }}">{{ matiere.id }}</a></td>
+                                        <td class="table-danger">{{ matiere.nommatiere }}</td>
+                                        <td class="table-warning" >{{ matiere.coef }}</td>
+
+
+
+
+                                        <td>
+                                            <a href="{{ path('matiere_edit', { 'id': matiere.id }) }}" class="btn btn-grd-info" >Editer</a>
+
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('delete1', { 'id': matiere.id }) }}" class="btn btn-grd-danger">Supprimer</a>
+
+                                        </td>
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                    </tbody>
+                                </table>
+                                <div>
+
+
+                                        <a href="{{ path('matiere_new') }}" class="btn btn-grd-info">Ajouter une matiére</a>
+
+
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {% endblock %}
+

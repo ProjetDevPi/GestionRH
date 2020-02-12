@@ -1,0 +1,111 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block container %}
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+        <div class="main-body">
+            <div class="page-wrapper">
+
+                <div class="page-header">
+                    <div class="row align-items-end">
+                        <div class="col-lg-8">
+                            <div class="page-header-title">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="page-header-breadcrumb">
+                                <ul class="breadcrumb-title">
+                                    <li class="breadcrumb-item">
+                                        <a href="index.html"> <i class="feather icon-home"></i> </a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#!">Data Table Extensions</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#!">Button</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="card">
+                                <div class="card-header table-card-header">
+                                    <h5>HTML5 Export Buttons</h5>
+                                </div>
+                                <div class="card-block">
+                                    <div class="dt-responsive table-responsive">
+                                        <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                                            <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Datedeb</th>
+                                                <th>Datefin</th>
+                                                <th>Type</th>
+                                                <th>Etat</th>
+                                                <th>Details</th>
+                                                <th>Demandes En Cours</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+
+
+        {% for conge in conges %}
+            <tr>
+                <td><a href="{{ path('conge_show', { 'id': conge.id }) }}">{{ conge.id }}</a></td>
+                <td>{% if conge.datedeb %}{{ conge.datedeb|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if conge.datefin %}{{ conge.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ conge.type }}</td>
+               {% if conge.etat=="accepté" %}
+                <td>  <p style="color:#34C924 ";>{{ conge.etat }}</p>
+                   {% else %}
+                       <td>  <p style="color:#FF1800 ";>{{ conge.etat }}</p>
+                    {% endif %}  <td>
+
+                            <a href="{{ path('conge_show', { 'id': conge.id }) }} "class="btn btn-grd-danger">Details</a>
+                </td>
+                <td>
+                            <a href="{{ path('conge_edit', { 'id': conge.id }) }}" class="btn btn-grd-success">Traiter Demande</a>
+
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Datedeb</th>
+                                                <th>Datefin</th>
+                                                <th>Type</th>
+                                                <th>Etat</th>
+                                                <th>Details</th>
+                                            </tr>
+                                            </tfoot>
+
+    </table>
+
+    <ul>
+        <li>
+            {#<a href="{{ path('conge_new') }}"class="btn btn-grd-success">Create a new conge</a>#}
+        </li>
+    </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+{% endblock %}
+
+

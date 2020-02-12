@@ -1,0 +1,90 @@
+
+
+
+
+    <table border="3">
+    <thead>
+    <tr>
+
+    </tr>
+    </thead>
+    <tbody>
+<tr>
+    <th>Lundi</th>
+    <th>Mardi</th>
+    <th>Mercredi</th>
+    <th>Jeudi</th>
+    <th>Vendredi</th>
+
+{% for seance in seances %}
+<tr>
+    {% if seance.user==user %}
+
+
+
+
+                                 {%  if seance.type=="seance Matinale"  %}
+
+
+                                     {% if seance.jour=="Lundi" %}
+
+                                    <td> {{ seance.salle }}
+                                    {{ seance.matiere.nommatiere }}
+                                        {% set seancelundisalle=seance.salle %}
+                                        {% set seancelundimatiere=seance.matiere %}</td>
+
+
+                                        {% elseif seance.jour=="Mardi" %}
+                                            <td> <a> Pas de cours </a></td>
+                                            <td> {{ seance.salle }}
+                                                {{ seance.matiere.nommatiere }}</td>
+
+
+                                            {% elseif seance.jour=="Mercredi" %}
+                                                <td> <a> Pas de cours </a></td>
+                                                <td> <a> Pas de cours </a></td>
+                                                <td> {{ seance.salle }}
+                                                    {{ seance.matiere.nommatiere }}</td>
+
+                                                {% elseif seance.jour=="Jeudi" %}
+                                                    <td> <a> Pas de cours </a></td>
+                                                    <td> <a> Pas de cours </a></td>
+                                                    <td> <a> Pas de cours </a></td>
+                                                    <td> {{ seance.salle }}
+                                                        {{ seance.matiere.nommatiere }}</td>
+
+
+                                                    {% elseif seance.jour=="Vendredi" %}
+                                                        <td> {{ lundi_salle }}
+                                                            {{ lundi_matiere }}</td>
+                                                        <td> <a> Pas de cours </a></td>
+                                                        <td> <a> Pas de cours </a></td>
+                                                        <td> <a> Pas de cours </a></td>
+
+                                                        <td> {{ seance.salle }}
+                                                            {{ seance.matiere.nommatiere }}</td>
+
+
+
+
+
+
+
+</tr>
+    {% endif %}
+{% endif %}
+{% endif %}
+
+
+
+{% set lundi_matiere =seancelundimatiere %}
+{% set lundi_salle =seancelundisalle %}
+
+{% endfor %}
+
+
+
+    </tbody>
+    </table>
+
+

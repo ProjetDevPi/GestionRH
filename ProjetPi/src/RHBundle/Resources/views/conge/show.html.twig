@@ -1,0 +1,79 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block container %}
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+        <div class="main-body">
+            <div class="page-wrapper">
+
+                <div class="col-xl-6 col-md-12">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                                <div class="card-block text-center text-white">
+
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information de {{ conge.user.nom }}</h6>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-6">
+
+                                            <p class="m-b-10 f-w-600">Date Debut</p>
+                                            <h6>{% if conge.datedeb %}{{ conge.datedeb|date('Y-m-d') }}{% endif %}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+
+                                            <p class="m-b-10 f-w-600">Date Fin</p>
+                                            <h6>{% if conge.datefin %}{{ conge.datedeb|date('Y-m-d') }}{% endif %}</h6>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Type de Congé</p>
+                                            <h6>{{ conge.type }}</h6>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Nom de l'enseignant</p>
+                                            <h6>{{ conge.user.nom }}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Traitement du demande</p>
+                                            <h6>{{ conge.etat}}</h6>
+                                        </div>
+
+
+
+                                            <ul class="social-link list-unstyled m-t-40 m-b-10">
+                                                <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook"><i class="feather icon-facebook facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter"><i class="feather icon-twitter twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram"><i class="feather icon-instagram instagram" aria-hidden="true"></i></a></li>
+                                            </ul>
+    <div>
+            <a href="{{ path('conge_index') }}" class="btn btn-info btn-round">Back to the list</a>
+
+    </div>
+        <div>
+            <a href="{{ path('delete', { 'id': conge.id }) }}" class="btn btn-danger btn-round">delete</a>
+        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
